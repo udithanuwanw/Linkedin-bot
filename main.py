@@ -1,15 +1,17 @@
-import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
-import os
+from selenium.webdriver.chrome.options import Options
+import random
+from selenium import webdriver
 from time import sleep
 from datetime import datetime
 import random
 notified_file = "already_notified.txt"
-cwd=os.getcwd()
-user_data_dir=f"{cwd}\\linkdinusrdir"
-options = uc.ChromeOptions()
-options.add_argument(f"--user-data-dir={user_data_dir}")
-driver = uc.Chrome(options=options,use_subprocess=False)
+chrome_options = Options()
+chrome_options.add_experimental_option('debuggerAddress', 'localhost:9555')
+
+driver = webdriver.Chrome(options=chrome_options)
+
+print("Browser Connected")
 
 def check_intern(job_des: str) -> bool:
     job_des = job_des.lower()  # Convert to lowercase
