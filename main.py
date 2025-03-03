@@ -15,7 +15,7 @@ print("Browser Connected")
 
 def check_intern(job_des: str) -> bool:
     job_des = job_des.lower()  # Convert to lowercase
-    return 'intern' in job_des  # Check for 'intern'
+    return ('intern' in job_des) or ('trainee' in job_des)  # Check for 'intern'
 
 while True:
 	current_hour = datetime.now().hour
